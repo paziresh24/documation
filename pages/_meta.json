@@ -1,15 +1,15 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
-  "contact": {
-    "title": "Contact ↗",
+  "index": {
     "type": "page",
-    "href": "https://twitter.com/shuding_",
-    "newWindow": true
+    "title": "صفحه اصلی",
+    "display": "hidden"
+  },
+  "apps": {
+    "type": "page",
+    "title": "ابزارک ها"
+  },
+  "rest": {
+    "type": "page",
+    "title": "REST API"
   }
 }

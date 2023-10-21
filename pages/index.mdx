@@ -1,11 +1,39 @@
-# Introduction
- 
-Welcome to Nextra! This is a basic docs template. You can use it as a starting point for your own project :)
+import Link from "next/link";
+import { Cards, Card } from "nextra/components";
 
-## What is Nextra?
+<div className="flex flex-col max-w-5xl mx-auto gap-28 justify-center items-center w-full py-20">
 
-A **simple**, **powerful** and **flexible** site generation framework with everything you love from Next.js.
+<div className="flex flex-col-reverse  md:flex-row justify-center  items-center md:items-start  md:justify-between gap-14">
+  <div className="flex flex-col space-y-1">
+    <h2 className="text-2xl font-bold">مستندات REST API</h2>
+    <span>
+وب سرویس ها به شما امکان می دهد اَبزارک و برنامه هایی بسازید که امکانات پذیرش24 را گسترش داده و بهبود بخشد.
+    </span>
+    <Link
+      className="p-2 !w-28  text-center hover:bg-white/90 transition-all !mt-7 bg-white text-black"
+      href="/rest"
+    >
+      بیشتر بدانید
+    </Link>
 
-## Documentation
+  </div>
+  <img src="/development.svg" alt="" className="w-80" />
+</div>
 
-The documentation is available at [https://nextra.site](https://nextra.site).
+<div className="flex flex-col-reverse  md:flex-row justify-center items-center md:items-start md:justify-between gap-14">
+  <div className="flex flex-col space-y-1">
+    <h2 className="text-2xl font-bold">توسعه اَبزارک ها</h2>
+    <span>
+      ابزارک‌ها به عنوان نرم‌افزارهای سمت کاربر سیستم ما عمل می‌کنند. این ابزارک‌ها به توسعه‌دهندگان
+      اجازه می‌دهند تا امکانات موجود در پذیرش24 را بهبود بخشند و ویژگی‌های جدیدی اضافه کنند.
+    </span>
+    <Link
+      className="p-2 !w-28  text-center hover:bg-white/90 transition-all !mt-7 bg-white text-black"
+      href="/apps"
+    >
+      بیشتر بدانید
+    </Link>
+  </div>
+  <img src="/connecting.svg" alt="" className="w-80" />
+</div>
+</div>

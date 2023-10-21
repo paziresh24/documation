@@ -1,18 +1,50 @@
-import React from 'react'
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import React from "react";
+import { DocsThemeConfig } from "nextra-theme-docs";
+import { Logo } from "./components/logo";
 
 const config: DocsThemeConfig = {
-  logo: <span>My Project</span>,
+  logo: <Logo />,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: "https://github.com/paziresh24",
   },
-  chat: {
-    link: 'https://discord.com',
-  },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: "https://github.com/paziresh24/app-docs",
   footer: {
-    text: 'Nextra Docs Template',
+    component: <></>,
   },
-}
+  direction: "rtl",
+  editLink: {
+    text: "ویرایش صفحه",
+  },
+  sidebar: {
+    toggleButton: true,
+    defaultMenuCollapseLevel: 0,
+  },
+  feedback: {
+    content: "سوال دارید؟ به ما بازخورد بدهید.",
+  },
+  search: {
+    placeholder: "دنبال چیزی میگردید؟",
+  },
+  toc: {
+    title: "فهرست",
+  },
+  darkMode: false,
+  nextThemes: {
+    defaultTheme: "dark",
+    forcedTheme: "dark",
+  },
+  useNextSeoProps() {
+    return {
+      titleTemplate: "%s – پذیرش24",
+    };
+  },
+  themeSwitch: {
+    useOptions: {
+      dark: "تاریک",
+      light: "روشن",
+      system: "سیستم",
+    },
+  },
+};
 
-export default config
+export default config;
