@@ -1630,3 +1630,7 @@
 .swagger-ui .scopes h2 a {
   color: #99bde6;
 }
+
+code.language-json {
+  display: block;
+}
