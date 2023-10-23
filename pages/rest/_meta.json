@@ -1,8 +1,20 @@
 {
   "index": {
-    "title": "وب سرویسها",
+    "title": "عمومی",
     "theme": {
-      "layout": "raw"
+      "layout": "full",
+      "pagination": false,
+      "toc": false,
+      "breadcrumb": false
+    }
+  },
+  "booking": {
+    "title": "مدیریت نوبت دهی",
+    "theme": {
+      "layout": "full",
+      "pagination": false,
+      "toc": false,
+      "breadcrumb": false
     }
   }
 }

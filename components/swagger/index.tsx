@@ -5,12 +5,9 @@ const SwaggerUI = dynamic<{
   docExpansion: string;
 }>(() => import("swagger-ui-react"), { ssr: false });
 
-const SwaggerWrapper = () => (
+const SwaggerWrapper = ({ url }: { url: string }) => (
   <div dir="ltr">
-    <SwaggerUI
-      docExpansion="none"
-      url="https://raw.githubusercontent.com/paziresh24/paziresh24_api/master/swagger.yaml"
-    />
+    <SwaggerUI docExpansion="none" url={url} />
   </div>
 );
 

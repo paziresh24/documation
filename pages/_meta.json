@@ -2,7 +2,10 @@
   "index": {
     "type": "page",
     "title": "صفحه اصلی",
-    "display": "hidden"
+    "display": "hidden",
+    "theme": {
+      "layout": "raw"
+    }
   },
   "apps": {
     "type": "page",
