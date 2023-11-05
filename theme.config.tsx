@@ -7,7 +7,7 @@ const config: DocsThemeConfig = {
   project: {
     link: "https://github.com/paziresh24",
   },
-  docsRepositoryBase: "https://github.com/paziresh24/app-docs",
+  docsRepositoryBase: "https://github.com/paziresh24/documation",
   footer: {
     component: <></>,
   },
