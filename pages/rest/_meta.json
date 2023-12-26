@@ -25,5 +25,14 @@
       "toc": false,
       "breadcrumb": false
     }
+  },
+ "notification": {
+  "title": "نوتیفیکیشن",
+  "theme": {
+      "layout": "full",
+      "pagination": false,
+      "toc": false,
+      "breadcrumb": false
+    }
   }
 }
