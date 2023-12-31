@@ -1,0 +1,49 @@
+# ثبت نهایی
+
+![Finalize](/interfaces/prescription/finalize.png)
+
+زمانی که پزشک در صفحه تجویز تصمیم به ثبت نهایی نسخه کرد لازم است کاربر به صفحه لیست مراجعین پذیرش24 به همراه اطلاعات نسخه شامل کدپیگیری و آیدی رکورد نوبت پذیرش24 برگردد.
+
+#### هدایت کاربر
+
+هدایت کابر پس ثبت نهایی باید با استفاده از متد `hamdast.intetnt` به همراه دیتای زیر انجام شود.
+
+<div dir="ltr">
+
+```sh npm2yarn
+npm i @paziresh24/hamdast
+```
+
+</div>
+
+```js
+import { Hamdast, INTENTS } from "@paziresh24/hamdast";
+const hamdast = new Hamdast();
+
+function finalize() {
+  // ...
+  hamdast.intent(INTENTS.APPOINTMENTS_LIST, {
+    prescription: {
+      identifier: "XYZ",
+      tracking_code: "123456789",
+    },
+  });
+}
+```
+
+##### دیتای ارسالی
+
+import { OptionTable } from "components/table";
+
+<OptionTable
+  options={[
+    ["identifier", "string", "آیدی رکورد نوبت که از زمان ثبت نسخه به هم دست تحویل داده شد."],
+    ["tracking_code", "string | Array<string>", "کدپیگیری نسخه"],
+  ]}
+/>
+
+---
+
+پس از هدایت کاربر به لیست بیماران پذیرش24 پیغامی به عنوان ثبت موفقیت آمیز نسخه نمایش داده خواهد شد.
+
+![Finalize message](/interfaces/prescription/finalized-message.png)

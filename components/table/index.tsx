@@ -7,12 +7,12 @@ export function OptionTable({ options }: { options: [string, string, any] }) {
         "-mx-6 mb-4 mt-6 overflow-x-auto overscroll-x-contain px-6 pb-4 " + styles.container
       }
     >
-      <table className="w-full border-collapse text-sm">
+      <table dir="ltr" className="w-full border-collapse text-sm">
         <thead>
-          <tr className="border-b py-4 text-right dark:border-neutral-700">
+          <tr className="border-b py-4 text-left dark:border-neutral-700">
             <th className="py-2 font-semibold">خاصیت</th>
             <th className="py-2 pl-6 font-semibold">نوع</th>
-            <th className="py-2 font-semibold">توضیحات</th>
+            <th className="py-2 font-semibold text-right">توضیحات</th>
           </tr>
         </thead>
         <tbody className="align-baseline text-gray-900 dark:text-gray-100">

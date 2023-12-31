@@ -1,0 +1,44 @@
+# ایجاد و ویرایش
+
+![Create and edit](/interfaces/prescription/create-and-edit.png)
+
+زمانی که پزشک بر روی دکمه "تجویز" کلیک می‌کند، از کاربر سوال می‌شود که از بین اَبزارک‌های نسخه نویسی مورد نظر خود را انتخاب کند.
+
+![App selection](/interfaces/prescription/app-selection.png)
+
+پس از انتخاب اَبزارک، کاربر به صفحه تجویز مرتبط با آن ابزارک هدایت می‌شود، و در این مرحله اطلاعات بیمار نیز به همراه آن انتقال می‌یابد.
+
+### صفحه تجویز
+
+صفحه تجویز باید در فایل `hamdast.json` در فیلد ‍‍‍‍`prescription.url` قرار گیرد.
+
+```json
+{
+  // ...
+  "interface": "prescription",
+  "prescription": {
+    "url": "https://example.com/prescribe"
+  }
+  // ...
+}
+```
+
+### هدایت پزشک
+
+پزشک به صفحه ای که از قبل تعیین شده است به همراه اطلاعات بیمار که شامل کدملی و شماره موبایل و آیدی رکورد نوبت است هدایت میشود.
+
+برای مثال:
+
+> `https://example.com/prescribe?identifier=XYZ&national_code=111111111&mobile_number=09123456789`
+
+##### دیتای ارسالی
+
+import { OptionTable } from "components/table";
+
+<OptionTable
+  options={[
+    ["identifier", "string", "آیدی رکورد نوبت در پذیرش24"],
+    ["national_code", "string", "کدملی بیمار"],
+    ["mobile_number", "string", "شماره موبایل بیمار"],
+  ]}
+/>
