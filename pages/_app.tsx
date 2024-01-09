@@ -3,11 +3,11 @@ import "../globals.css";
 import "swagger-ui-react/swagger-ui.css";
 import "components/swagger/swagger-dark.css";
 
-const inter = Vazirmatn({ subsets: ["latin"] });
+const vazir = Vazirmatn({ subsets: ["latin"] });
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <main className={inter.className}>
+    <main className={vazir.className}>
       <Component {...pageProps} />
     </main>
   );

@@ -17,7 +17,7 @@ const config: DocsThemeConfig = {
   },
   sidebar: {
     toggleButton: true,
-    defaultMenuCollapseLevel: 0,
+    defaultMenuCollapseLevel: 1,
   },
   feedback: {
     content: "سوال دارید؟ به ما بازخورد بدهید.",
@@ -30,7 +30,7 @@ const config: DocsThemeConfig = {
   },
   darkMode: true,
   nextThemes: {
-    defaultTheme: "system"
+    defaultTheme: "system",
   },
   useNextSeoProps() {
     return {
