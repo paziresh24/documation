@@ -30,8 +30,7 @@ const config: DocsThemeConfig = {
   },
   darkMode: true,
   nextThemes: {
-    defaultTheme: "system",
-    forcedTheme: "dark",
+    defaultTheme: "system"
   },
   useNextSeoProps() {
     return {
