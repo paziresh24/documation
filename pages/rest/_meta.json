@@ -34,5 +34,14 @@
       "toc": false,
       "breadcrumb": false
     }
-  }
+  },
+  "payment": {
+   "title": "پرداخت",
+   "theme": {
+       "layout": "full",
+       "pagination": false,
+       "toc": false,
+       "breadcrumb": false
+     }
+   }
 }
