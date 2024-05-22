@@ -17,6 +17,15 @@
       "breadcrumb": false
     }
   },
+    "search": {
+      "title": "جستجو",
+      "theme": {
+        "layout": "full",
+        "pagination": false,
+        "toc": false,
+        "breadcrumb": false
+      }
+  },
  "bazaar": {
   "title": "بازارچه",
   "theme": {
