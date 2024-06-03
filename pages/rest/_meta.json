@@ -8,7 +8,7 @@
       "breadcrumb": false
     }
   },
-  "booking": {
+  "booking_management": {
     "title": "مدیریت نوبت دهی",
     "theme": {
       "layout": "full",
@@ -52,5 +52,14 @@
        "toc": false,
        "breadcrumb": false
      }
-   }
+   },
+   "booking": {
+    "title": "نوبت دهی",
+    "theme": {
+      "layout": "full",
+      "pagination": false,
+      "toc": false,
+      "breadcrumb": false
+    }
+  }
 }
