@@ -62,4 +62,15 @@
       "breadcrumb": false
     }
   }
+},
+   "profile": {
+    "title": "پروفایل کاربری",
+    "theme": {
+      "layout": "full",
+      "pagination": false,
+      "toc": false,
+      "breadcrumb": false
+    }
+  }
 }
+
