@@ -71,6 +71,15 @@
       "toc": false,
       "breadcrumb": false
     }
+  },
+  "legacy_auth": {
+    "title": "احراز هویت قدیمی"
+    "theme": {
+      "layout": "full",
+      "pagination": false,
+      "toc": false,
+      "breadcrumb": false
+    }
   }
 }
 
