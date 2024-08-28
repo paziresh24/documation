@@ -17,27 +17,27 @@
       "breadcrumb": false
     }
   },
-    "search": {
-      "title": "جستجو",
-      "theme": {
-        "layout": "full",
-        "pagination": false,
-        "toc": false,
-        "breadcrumb": false
-      }
-  },
- "bazaar": {
-  "title": "بازارچه",
-  "theme": {
+  "search": {
+    "title": "جستجو",
+    "theme": {
       "layout": "full",
       "pagination": false,
       "toc": false,
       "breadcrumb": false
     }
   },
- "notification": {
-  "title": "نوتیفیکیشن",
-  "theme": {
+  "bazaar": {
+    "title": "بازارچه",
+    "theme": {
+      "layout": "full",
+      "pagination": false,
+      "toc": false,
+      "breadcrumb": false
+    }
+  },
+  "notification": {
+    "title": "نوتیفیکیشن",
+    "theme": {
       "layout": "full",
       "pagination": false,
       "toc": false,
@@ -45,15 +45,15 @@
     }
   },
   "payment": {
-   "title": "پرداخت",
-   "theme": {
-       "layout": "full",
-       "pagination": false,
-       "toc": false,
-       "breadcrumb": false
-     }
-   },
-   "booking": {
+    "title": "پرداخت",
+    "theme": {
+      "layout": "full",
+      "pagination": false,
+      "toc": false,
+      "breadcrumb": false
+    }
+  },
+  "booking": {
     "title": "نوبت دهی",
     "theme": {
       "layout": "full",
@@ -61,9 +61,8 @@
       "toc": false,
       "breadcrumb": false
     }
-  }
-,
-   "profile": {
+  },
+  "profile": {
     "title": " رخ نما(پروفایل)",
     "theme": {
       "layout": "full",
@@ -73,7 +72,7 @@
     }
   },
   "legacy_auth": {
-    "title": "احراز هویت قدیمی"
+    "title": "احراز هویت قدیمی",
     "theme": {
       "layout": "full",
       "pagination": false,
@@ -82,4 +81,3 @@
     }
   }
 }
-
