@@ -1,10 +1,14 @@
 {
-  "index": "معرفی",
-  "build": "ساخت ابزارک",
+  "index": "درباره ساخت ابزارک",
   "publish": "انتشار ابزارک",
-  "-- Interface": {
+  "-- tools": {
     "type": "separator",
-    "title": "رابط ها"
+    "title": "ابزار ها"
   },
-  "prescription": "نسخه نویسی"
+  "notification": "نوتیفیکشن",
+  "-- apis": {
+    "type": "separator",
+    "title": "APIs"
+  },
+  "unread": "Unread"
 }

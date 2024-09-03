@@ -28,9 +28,9 @@ const config: DocsThemeConfig = {
   toc: {
     title: "فهرست",
   },
-  darkMode: true,
+  darkMode: false,
   nextThemes: {
-    defaultTheme: "system",
+    defaultTheme: "light",
   },
   useNextSeoProps() {
     return {
