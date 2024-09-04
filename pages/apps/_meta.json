@@ -1,16 +1,20 @@
 {
   "index": "درباره ساخت ابزارک",
-  "publish": "انتشار ابزارک",
   "-- tools": {
     "type": "separator",
     "title": "ابزار ها"
   },
   "notification": "نوتیفیکشن",
+  "payment": "پرداخت",
   "-- apis": {
     "type": "separator",
     "title": "APIs"
   },
   "unread": "Unread",
   "open_link": "Open Link",
-  "get_state": "Get State"
+  "get_session_token": "Get Session Token",
+  "-- publish": {
+    "type": "separator"
+  },
+  "publish": "انتشار ابزارک"
 }

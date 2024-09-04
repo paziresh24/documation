@@ -1,0 +1,108 @@
+import { Tabs } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Callout } from "nextra/components";
+
+### Client Side
+ 
+<Tabs items={['JS', 'Flutter']}>
+  <Tabs.Tab>
+  ```js
+    window.hamdast.getSessionToken().then((sessionToken) => {
+        // Do something with the sessionToken
+    });
+  ```
+    نمونه کد:
+
+```js showLineNumbers {5} /sessionToken/
+// ...
+
+async function login(){
+    try{
+        const sessionToken = await window.hamdast.getSessionToken();
+        await axios.post('https://example.com/login', { session_token: sessionToken });
+
+        // Do something after login
+    } catch(error){
+        console.error('user rejected the request', error);
+    }
+}
+
+// ...
+```
+  </Tabs.Tab>
+  <Tabs.Tab>
+  ```dart
+    Hamdast.getSessionToken().then((session_token) {
+        // Do something with the session_token
+    });
+  ```
+    نمونه کد:
+
+```dart showLineNumbers {1,7} /sessionToken/
+import 'hamdast.dart';
+
+// ...
+
+Future<void> login() async {
+    try{
+        final sessionToken = await Hamdast.getSessionToken();
+        await http.post('https://example.com/login', body: { 'session_token': sessionToken });
+
+        // Do something after login
+    } catch(error){
+        print('user rejected the request $error');
+    }
+}
+
+// ...
+```
+  </Tabs.Tab>
+</Tabs>
+
+### Server Side
+
+<Tabs items={['Node.js', 'PHP']}>
+  <Tabs.Tab>
+  ```js showLineNumbers {8-12}
+const express = require('express');
+const app = express();
+const axios = require('axios');
+
+app.post('/login', async (req, res) => {
+    const { session_token } = req.body;
+
+    axios.post("https://hamdast.paziresh24.com/api/v1/auth", { session_token }, {
+        headers: {
+          x-api-key: "YOUR_API_KEY"
+        }
+    })
+    .then((response) => {
+        // Do something with the response
+    });
+
+});
+
+// ...
+  ```
+</Tabs.Tab>
+  <Tabs.Tab>
+  ```php showLineNumbers {6-9}
+<?php
+$session_token = $_POST['session_token'];
+
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, "https://hamdast.paziresh24.com/api/v1/auth");
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(['session_token' => $session_token]));
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('x-api-key: YOUR_API_KEY'));
+
+$response = curl_exec($ch);
+
+// Do something with the response
+
+curl_close($ch);
+?>
+  ```
+</Tabs.Tab>
+</Tabs>
