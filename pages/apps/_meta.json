@@ -1,5 +1,8 @@
 {
   "index": "درباره ساخت ابزارک",
+  "sdk": {
+    "title": "SDK"
+  },
   "-- tools": {
     "type": "separator",
     "title": "ابزار ها"
