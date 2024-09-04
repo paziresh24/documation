@@ -10,5 +10,7 @@
     "type": "separator",
     "title": "APIs"
   },
-  "unread": "Unread"
+  "unread": "Unread",
+  "open_link": "Open Link",
+  "get_state": "Get State"
 }

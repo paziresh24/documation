@@ -1,0 +1,49 @@
+import { Tabs } from 'nextra/components'
+import { Steps } from 'nextra/components'
+
+ 
+<Tabs items={['JS', 'Plasmic', 'Flutter']}>
+  <Tabs.Tab>
+  ```js
+    window.hamdast.openLink(YOUR_URL);
+  ```
+    نمونه کد:
+
+```js showLineNumbers {4}
+// ...
+
+function openLink(){
+    window.hamdast.openLink('https://example.com/example'); 
+}
+
+// ...
+```
+  </Tabs.Tab>
+  <Tabs.Tab>
+1. **افزودن Interaction به المنت**
+
+![Embed](/button-interactions.png)
+
+2. **افزودن اکشن Open Link و استفاده از آن**
+
+![Embed](/open-link.png)
+  </Tabs.Tab>
+  <Tabs.Tab>
+  ```dart
+    Hamdast.openLink(YOUR_URL);
+  ```
+    نمونه کد:
+
+```dart showLineNumbers {1,6}
+import 'hamdast.dart';
+
+// ...
+
+void openLink(){
+    Hamdast.openLink('https://example.com/example');
+}
+
+// ...
+```
+  </Tabs.Tab>
+</Tabs>

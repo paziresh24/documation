@@ -1,0 +1,55 @@
+import { Tabs } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Callout } from "nextra/components";
+
+ 
+<Tabs items={['JS', 'Flutter']}>
+  <Tabs.Tab>
+  ```js
+    window.hamdast.getState(STATE).then((data) => {
+        // Do something with the data
+    });
+  ```
+    نمونه کد:
+
+```js showLineNumbers {5}
+// ...
+
+async function getUserData(){
+    try{
+        const data = await window.hamdast.getState('user');
+        return data;
+    } catch(error){
+        console.error('user rejected the request', error);
+    }
+}
+
+// ...
+```
+  </Tabs.Tab>
+  <Tabs.Tab>
+  ```dart
+    Hamdast.getState(STATE).then((data) {
+        // Do something with the data
+    });
+  ```
+    نمونه کد:
+
+```dart showLineNumbers {1,7}
+import 'hamdast.dart';
+
+// ...
+
+Future<void> getUserData() async {
+    try{
+        final data = await Hamdast.getState('user');
+        return data;
+    } catch(error){
+        print('user rejected the request $error');
+    }
+}
+
+// ...
+```
+  </Tabs.Tab>
+</Tabs>
