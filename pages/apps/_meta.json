@@ -3,22 +3,18 @@
   "sdk": {
     "title": "SDK"
   },
-  "-- tools": {
+  "-- profile-plugin": {
     "type": "separator",
-    "title": "ابزار ها"
+    "title": "ویجت پروفایل"
   },
-  "notification": "نوتیفیکشن",
-  "payment": "پرداخت",
+  "about-widget": "ویجت پروفایل چیست؟",
+  "development-widget": "مستندات ویجت",
+  "learn-widjet": "دوره‌های آموزشی",
   "-- apis": {
     "type": "separator",
     "title": "APIs"
   },
   "unread": "Unread",
-  "installations": "Installations",
   "open_link": "Open Link",
-  "get_session_token": "Get Session Token",
-  "-- publish": {
-    "type": "separator"
-  },
-  "publish": "انتشار ابزارک"
+  "payment": "Payment"
 }
