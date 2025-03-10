@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.darklight-reference {
+  display: none !important;
+}
+
+em {
+  @apply text-base opacity-50 not-italic font-normal;
+}
+
+h2 {
+  @apply !text-2xl;
+}
+
+h1 {
+  @apply !text-3xl;
+}
+
+div.nextra-cards.nx-mt-4.nx-gap-4.nx-grid.nx-not-prose > a > span {
+  justify-content: end;
+  color: #3861fb;
+}
+
+div.nextra-cards.nx-mt-4.nx-gap-4.nx-grid.nx-not-prose
+  > a
+  > span
+  > span
+  > span {
+  @apply rotate-180;
+}
+
+a {
+  @apply underline-offset-8;
+}

@@ -1,10 +1,13 @@
 {
   "index": {
-    "type": "page",
-    "title": "صفحه اصلی",
     "display": "hidden",
+    "title": "صفحه اصلی",
     "theme": {
-      "layout": "raw"
+      "breadcrumb": false,
+      "footer": true,
+      "sidebar": false,
+      "toc": false,
+      "pagination": false
     }
   },
   "apps": {
@@ -13,6 +16,11 @@
   },
   "rest": {
     "type": "page",
-    "title": "REST API"
+    "title": "REST API",
+    "display": "hidden"
+  },
+  "apis": {
+    "type": "page",
+    "title": "سرویس ها"
   }
 }

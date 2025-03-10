@@ -23,7 +23,7 @@ const config: DocsThemeConfig = {
     content: "سوال دارید؟ به ما بازخورد بدهید.",
   },
   search: {
-    placeholder: "دنبال چیزی میگردید؟",
+    placeholder: "جستجو کنید...",
   },
   toc: {
     title: "فهرست",
@@ -34,7 +34,7 @@ const config: DocsThemeConfig = {
   },
   useNextSeoProps() {
     return {
-      titleTemplate: "%s – پذیرش24",
+      titleTemplate: "%s | پذیرش24",
     };
   },
   themeSwitch: {

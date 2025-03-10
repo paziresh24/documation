@@ -2,64 +2,72 @@
 title: توسعه دهندگان
 ---
 
+import { Callout } from 'nextra/components'
+
+
 import Link from "next/link";
 import { Cards, Card } from "nextra/components";
 
-<div className="flex flex-col max-w-5xl mx-auto gap-28 justify-center items-center w-full py-20  px-6">
-<div className="flex flex-col space-y-2 max-w-screen-sm md:px-10">
-    <h2 className="text-2xl font-black">به جمع توسعه‌دهندگان پذیرش۲۴ خوش آمدید</h2>
-    <span className="font-thin">
-    پذیرش۲۴ یک هدف مهم دارد:  <b>بیمارها به جز درد بیماری‌شان درد دیگری تحمل نکنند</b>. اگر این هدف برای شما هم مهم است، می‌توانید ابزارک  بنویسید و پذیرش۲۴ را بهبود بدهید.
-   </span>
+<p className='font-bold text-lg mt-3'>به جمع توسعه‌دهندگان پذیرش۲۴ خوش آمدید</p>
+
+<div className='mt-10'>
+<div className="flex flex-col md:flex-row mt-5 justify-center  items-center md:items-center  md:justify-between gap-14">
+  <img src="/development-dark.svg" alt="" className="w-80 dark:hidden" />
+  <div className="flex flex-col space-y-1">
+      <h2 className="!text-xl text-black font-bold">API</h2>
+    <span>
+با استفاده از APIهای پذیرش۲۴ می‌توانید به سرویس‌های نوبت‌دهی، جستجوی پزشکان، نظرات، پرونده‌های پزشکی و مشاوره آنلاین دسترسی داشته باشید. در این مستندات، توضیحات کاملی درباره نحوه اتصال و استفاده از APIها ارائه شده است تا فرایند توسعه برای شما ساده‌تر و سریع‌تر شود.
+</span>
+  <div className="flex gap-2 items-center !mt-7">
+<Link
+  className="p-2 font-medium text-sm px-4  md:w-fit w-full md:max-w-fit text-center transition-all bg-primary text-white hover:bg-primary/90 dark:bg-white dark:text-black dark:bg-white/90"
+  href="/apis"
+>
+مستندات API ها
+</Link>
+    </div>
+
+  </div>
+</div>
 </div>
 
-<div className="flex flex-col-reverse md:flex-row justify-center  items-center md:items-start  md:justify-between gap-14">
+---
+
+<div>
+<div className="flex flex-col md:flex-row mt-5 justify-center  items-center md:items-center  md:justify-between gap-14">
+    <img src="/connecting-dark.svg" alt="" className="w-80 dark:hidden" />
   <div className="flex flex-col space-y-1">
-    <h2 className="text-2xl font-bold">با ساخت ابزارک‌های جدید، پذیرش۲۴ را بهبود دهید</h2>
-    <span className="font-extralight">
-شما هم می‌توانید ابزارک‌های جدید بسازید. برای پیدا کردن ایده‌های جدید، پرسش‌های عمومی کاربران را بخوانید. اگر همین الان ایده دارید، مستندات ساخت ابزارک را بخوانید.
+    <h2 className="!text-xl text-black font-bold">ابزارک</h2>
+    <span className="font-thin">
+    پذیرش۲۴ یک هدف مهم دارد:  <b>بیمارها به جز درد بیماری‌شان درد دیگری تحمل نکنند</b>. اگر این هدف برای شما هم مهم است، می‌توانید ابزارک  بنویسید و پذیرش۲۴ را بهبود بدهید.
+</span>
+    <span>
+برای پیدا کردن ایده‌های جدید، پرسش‌های عمومی کاربران را بخوانید. اگر همین الان ایده دارید، مستندات ساخت ابزارک را بخوانید.
   </span>
+  <div className="flex md:flex-row flex-col gap-2 items-center !mt-7">
    <Link
-      className="p-2 font-medium text-sm px-4  md:w-fit w-full md:max-w-fit text-center transition-all !mt-7 bg-primary text-white hover:bg-primary/90 dark:bg-white dark:text-black dark:bg-white/90"
+      className="p-2 font-medium text-sm px-4  md:w-fit w-full md:max-w-fit text-center transition-all   text-primary hover:bg-primary/20  bg-primary/10 dark:bg-white dark:text-black dark:bg-white/90"
     target="_blank"  href="https://newsupport.paziresh24.com/public-tickets/"
     >
-  گشتی در مسئله‌های بیماران و پزشکان
-    </Link>
-    <div className="flex flex-col md:flex-row items-center gap-3 !mt-3">
-<Link
-      className="p-2 font-medium text-sm px-4 md:w-fit w-full md:max-w-fit text-center transition-all bg-primary text-white hover:bg-primary/90 dark:bg-white dark:text-black dark:bg-white/90"
-      href="/rest"
-    >
-   مستندات  وب سرویس ها
+  گشتی در مسائل
     </Link>
     <Link
       className="p-2 font-medium text-sm px-4  md:w-fit w-full md:max-w-fit text-center transition-all bg-primary text-white hover:bg-primary/90 dark:bg-white dark:text-black dark:bg-white/90"
       href="/apps"
     >
-   مستندات  فنی توسعه ابزارک‌ها
+   مستندات توسعه ابزارک‌ها
     </Link>
     </div>
-    
 
   </div>
-  <img src="/development.svg" alt="" className="w-80 hidden dark:block" />
-  <img src="/development-dark.svg" alt="" className="w-80 dark:hidden" />
 </div>
 
-<div className="flex flex-col-reverse  md:flex-row justify-center items-center md:items-start md:justify-between gap-14">
-  <div className="flex flex-col space-y-1">
-    <h2 className="text-2xl font-bold">لازم نیست برنامه نویس باشید</h2>
-    <span className="font-extralight">
-     برای توسعه پذیرش۲۴ لازم نیست برنامه‌نویس باشید. خیلی از بهبودهای امروز را هم کسانی انجام داده‌اند که کد نوشتن بلد نیستند. ولی خلاقیت دارند، کنجکاوند، سریع یاد می‌گیرند و کاهش درد بیمارها برایشان اهمیت دارد.
-    </span>
-    <Link
-      className="p-2 font-medium text-sm px-4  md:w-fit w-full md:max-w-fit text-center transition-all !mt-7 bg-primary text-white hover:bg-primary/90 dark:bg-white dark:text-black dark:bg-white/90"
-      target="_blank"  href="https://t.me/amirhbeigi"
-    >
-      بیشتر بدانید
-    </Link>
-  </div>
-  <img src="/connecting.svg" alt="" className="w-80 hidden dark:block" />
-  <img src="/connecting-dark.svg" alt="" className="w-80 dark:hidden" />
-</div>
+---
+
+<Callout type="info">
+<span className='text-sm'>
+به منظور بیان مشکلات و راهنمایی به [amirhbeigi@](https://t.me/amirhbeigi) پیام داده و یا عضو [گروه توسعه‌دهندگان پذیرش۲۴](https://t.me/paziresh24_developers) در تلگرام شوید.
+</span>
+</Callout>
+
 </div>
