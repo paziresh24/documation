@@ -4,7 +4,7 @@ import "swagger-ui-react/swagger-ui.css";
 import "components/swagger/swagger-dark.css";
 
 const yekanBakhFont = localFont({
-  src: "../public/fonts/yekan-bakh-vf.ttf",
+  src: "../public/fonts/Estedad-FD[KSHD,wght].ttf",
   display: "swap",
   preload: true,
   variable: "--yekan-bakh-font",
