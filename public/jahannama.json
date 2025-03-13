@@ -5,11 +5,6 @@
       "url": "https://apigw.paziresh24.com"
     }
   ],
-  "security": [
-    {
-      "APIKeyHeader": []
-    }
-  ],
   "info": {
     "title": "Jahannama APIs",
     "version": "v1.0.0"
@@ -154,13 +149,6 @@
             }
           }
         }
-      }
-    },
-    "securitySchemes": {
-      "APIKeyHeader": {
-        "type": "apiKey",
-        "name": "x-api-key",
-        "in": "header"
       }
     }
   },

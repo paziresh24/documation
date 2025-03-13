@@ -34,3 +34,21 @@ div.nextra-cards.nx-mt-4.nx-gap-4.nx-grid.nx-not-prose
 a {
   @apply underline-offset-8;
 }
+
+.nextra-steps {
+  padding-left: 0rem !important;
+  padding-right: 1.5rem !important;
+  border-left-width: 0 !important;
+  border-right-width: 1px !important;
+  margin-left: 0 !important;
+  margin-right: 1rem !important;
+}
+
+.nextra-steps h3:before {
+  margin-left: 0 !important;
+  margin-right: -41px !important;
+}
+
+.nextra-steps h3 {
+  display: flex;
+}
