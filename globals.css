@@ -52,3 +52,12 @@ div.nextra-cards.nx-mt-4.nx-gap-4.nx-grid.nx-not-prose
 .nextra-steps h3 {
   display: flex;
 }
+
+.nx-block th:nth-child(2) {
+  width: 100%;
+}
+
+.nx-block td:nth-child(1) {
+  direction: ltr;
+  text-align: left;
+}

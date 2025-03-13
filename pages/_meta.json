@@ -10,10 +10,7 @@
       "pagination": false
     }
   },
-  "apps": {
-    "type": "page",
-    "title": "ابزارک ها"
-  },
+
   "rest": {
     "type": "page",
     "title": "REST API",
@@ -22,5 +19,13 @@
   "apis": {
     "type": "page",
     "title": "سرویس ها"
+  },
+  "authorization": {
+    "type": "page",
+    "title": "احراز هویت"
+  },
+  "apps": {
+    "type": "page",
+    "title": "ابزارک ها"
   }
 }

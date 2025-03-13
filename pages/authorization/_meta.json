@@ -1,0 +1,22 @@
+{
+  "index": {
+    "title": "احراز هویت",
+    "theme": {
+      "breadcrumb": false,
+      "footer": true,
+      "sidebar": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "scopes": {
+    "title": "دسترسی‌ها",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "sidebar": true,
+      "toc": true,
+      "pagination": true
+    }
+  }
+}
