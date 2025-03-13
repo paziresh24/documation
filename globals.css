@@ -32,7 +32,7 @@ div.nextra-cards.nx-mt-4.nx-gap-4.nx-grid.nx-not-prose
 }
 
 .nx-underline {
-  @apply !underline-offset-8;
+  @apply !underline-offset-2;
 }
 
 .nextra-steps {
