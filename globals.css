@@ -10,11 +10,11 @@ em {
   @apply text-base opacity-50 not-italic font-normal;
 }
 
-h2 {
+.nx-text-3xl {
   @apply !text-2xl;
 }
 
-h1 {
+.nx-text-4xl {
   @apply !text-3xl;
 }
 
@@ -31,8 +31,8 @@ div.nextra-cards.nx-mt-4.nx-gap-4.nx-grid.nx-not-prose
   @apply rotate-180;
 }
 
-a {
-  @apply underline-offset-8;
+.nx-underline {
+  @apply !underline-offset-8;
 }
 
 .nextra-steps {
