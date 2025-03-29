@@ -25,7 +25,7 @@
     "/open-platform/v1/profile/purge-cache": {
       "post": {
         "summary": "Purge Cache",
-        "description": "API for developers to clear their own profile cache from CDN.",
+        "description": "API for developers to clear their profile cache from CDN.",
         "operationId": "invalidateProfileCache",
         "security": [
           {
