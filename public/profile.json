@@ -1,0 +1,83 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Profile APIs",
+    "version": "v1.0.0",
+    "description": "Edit profile information such as expertise, biography, gallery, etc. and clear profile cache."
+  },
+  "servers": [
+    {
+      "url": "https://apigw.paziresh24.com"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Utilities",
+      "description": "Developer tools for managing profile-related cache and other auxiliary operations."
+    }
+  ],
+  "paths": {
+    "/open-platform/v1/profile/purge-cache": {
+      "post": {
+        "summary": "Purge Cache",
+        "description": "API for developers to clear their own profile cache from CDN.",
+        "operationId": "invalidateProfileCache",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "tags": ["Utilities"],
+        "responses": {
+          "200": {
+            "description": " Cache cleared successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Purging request sent successfully."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions."
+          },
+          "default": {
+            "description": "Unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "The token must be sent in the `Authorization` header."
+      }
+    }
+  },
+  "x-original-swagger-version": "2.0"
+}
