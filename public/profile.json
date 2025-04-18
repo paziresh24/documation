@@ -17,11 +17,51 @@
   ],
   "tags": [
     {
+      "name": "Information",
+      "description": "Profile information such as expertise, biography and ..."
+    },
+    {
       "name": "Utilities",
       "description": "Developer tools for managing profile-related cache and other auxiliary operations."
     }
   ],
   "paths": {
+    "/open-platform/v1/profile/information": {
+      "get": {
+        "summary": "Retrieve",
+        "description": "Get profile information such as expertise, biography and ...",
+        "operationId": "getInformation",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "tags": ["Information"],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetrieveInformation"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions."
+          },
+          "default": {
+            "description": "Unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
     "/open-platform/v1/profile/purge-cache": {
       "post": {
         "summary": "Purge Cache",
@@ -70,6 +110,115 @@
     }
   },
   "components": {
+    "schemas": {
+      "RetrieveInformation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the doctor"
+          },
+          "name": {
+            "type": "string",
+            "description": "First name of the doctor"
+          },
+          "family": {
+            "type": "string",
+            "description": "Family name of the doctor"
+          },
+          "national_code": {
+            "type": "string",
+            "description": "National identification code of the doctor"
+          },
+          "medical_code": {
+            "type": "string",
+            "description": "Medical code of the doctor (if available)"
+          },
+          "image": {
+            "type": "string",
+            "description": "Image file name or URL"
+          },
+          "secretary_phone": {
+            "type": "string",
+            "description": "Secretary's phone number (if available)",
+            "nullable": true
+          },
+          "expertises": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Unique identifier for expertise"
+                },
+                "alias_title": {
+                  "type": "string",
+                  "description": "Alias title of the expertise"
+                },
+                "expertise": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Unique identifier of the expertise"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name of the expertise"
+                    }
+                  }
+                },
+                "degree": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Unique identifier of the degree"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name of the degree"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "cell": {
+            "type": "string",
+            "description": "Cell phone number of the doctor"
+          },
+          "rate_info": {
+            "type": "object",
+            "properties": {
+              "satisfaction": {
+                "type": "integer",
+                "description": "Satisfaction rating percentage"
+              },
+              "rate": {
+                "type": "number",
+                "format": "float",
+                "description": "Average rating"
+              },
+              "count": {
+                "type": "integer",
+                "description": "Number of ratings"
+              }
+            },
+            "nullable": true
+          },
+          "biography": {
+            "type": "string",
+            "description": "Biography of the doctor"
+          },
+          "slug": {
+            "type": "string",
+            "description": "Slug for the doctor profile"
+          }
+        }
+      }
+    },
     "securitySchemes": {
       "BearerAuth": {
         "type": "http",
