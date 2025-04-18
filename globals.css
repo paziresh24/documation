@@ -61,3 +61,7 @@ div.nextra-cards.nx-mt-4.nx-gap-4.nx-grid.nx-not-prose
   direction: ltr;
   text-align: left;
 }
+
+.nextra-card {
+  justify-content: space-between !important;
+}
