@@ -27,5 +27,9 @@
   "apps": {
     "type": "page",
     "title": "ابزارک ها"
+  },
+  "design": {
+    "type": "page",
+    "title": "دیزاین"
   }
 }

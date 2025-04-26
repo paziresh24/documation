@@ -1,0 +1,16 @@
+{
+  "index": "هدف",
+  "-- brand": {
+    "type": "separator",
+    "title": "برند"
+  },
+  "logo": "لوگو",
+  "color": "پالت رنگ",
+  "typography": "تایپوگرافی",
+  "iconography": "آیکون ها",
+  "voice-tone": "نوشتارها و لحن ها",
+  "-- patterns": {
+    "type": "separator",
+    "title": "الگوها"
+  }
+}
