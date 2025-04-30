@@ -9,7 +9,12 @@
   },
   "about-widget": "ویجت پروفایل چیست؟",
   "development-widget": "مستندات ویجت",
-  "learn-widjet": "دوره‌های آموزشی",
+  "-- channel-plugin": {
+    "type": "separator",
+    "title": "کانال گفتگو"
+  },
+  "about-channel": "کانال گفتگو چیست؟",
+  "development-channel": "مستندات کانال گفتگو",
   "-- apis": {
     "type": "separator",
     "title": "APIs"

@@ -1,78 +1,7 @@
 # نصب SDK
 
-import { Tabs } from 'nextra/components'
-import { Steps } from 'nextra/components'
-
- 
-<Tabs items={['JS', 'Flutter']}>
-  <Tabs.Tab>
   اسکریپت زیر را در تگ `<head>` صفحه خود قرار دهید:
 ```html showLineNumbers
 <script src="https://hamdast.paziresh24.com/sdk/hamdast.js"></script>
 ```
  
- در محلی که اپ شما شروع به کار می‌کند، اسکریپت زیر را قرار دهید:
-```html showLineNumbers
-<script>
-    window.hamdast.initialize();
-</script>
-```
-  </Tabs.Tab>
-  <Tabs.Tab>
-**1. افزودن SDK به فایل index.html**
-
-فایل `web/index.html` را باز کنید و کد زیر را در تگ `<head>` قرار دهید:
-```html showLineNumbers {8}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Your Flutter App</title>
-    <link rel="manifest" href="manifest.json">
-    <script src="https://hamdast.paziresh24.com/sdk/hamdast.js"></script>
-  </head>
-  <body>
-    <script src="main.dart.js" type="application/javascript"></script>
-  </body>
-</html>
-```
-**2. ساخت فایل `hamdast.dart`**
-
-فایل `hamdast.dart` را ایجاد کرده و کد کلاس زیر را در آن قرار دهید:
-```dart showLineNumbers
-import 'dart:js' as js;
-
-class Hamdast {
-    static void initialize() {
-      js.context.callMethod('hamdast.initialize', []);
-    }
-    static Future<String> getSessionToken() async {
-      return js.context.callMethod('hamdast.getSessionToken', []);
-    }
-    static void openLink(String url) {
-      js.context.callMethod('hamdast.openLink', [url]);
-    }
-}
-```
-**3. فراخوانی تابع `initialize`**
-
-در محلی که اپ شما شروع به کار می‌کند، کد زیر را قرار دهید:
-```dart showLineNumbers {1,10}
-import 'hamdast.dart'; // Import the Hamdast wrapper class
-
-// ...
-
-class _HomePageState extends State<HomePage> {
-  @override
-  void initState() {
-    super.initState();
-    // Initialize hamdast on page load
-    Hamdast.initialize();
-  }
-  
-  // ...
-}
-```
-</Tabs.Tab>
-</Tabs>
