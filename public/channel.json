@@ -16,7 +16,7 @@
     }
   ],
   "paths": {
-    "/api/v1/apps/{app_key}/channels": {
+    "/api/v1/apps/{app_key}/channels/": {
       "get": {
         "summary": "Retrieve All",
         "description": "Retrieve all profiles where the widget is active.",
@@ -61,7 +61,7 @@
         }
       }
     },
-    "/api/v1/apps/{app_key}/channels/{provider_id}": {
+    "/api/v1/apps/{app_key}/channels/{provider_id}/": {
       "get": {
         "summary": "Retrieve by provider ID",
         "description": "Retrieve the specified profile widget",
