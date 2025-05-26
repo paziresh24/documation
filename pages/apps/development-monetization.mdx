@@ -95,7 +95,7 @@ if (event === "HAMDAST_PAYMENT_SUCCESS") {
 برای این منظور از وب‌سرویس زیر به همراه apikey همدست، app_id و receipt_id استفاده کنید:
 
 ```js
-fetch("https://hamdast.paziresh24.com/v1/apps/[app_key]/monetization/verify", {
+fetch("https://hamdast.paziresh24.com/api/v1/apps/[app_key]/monetization/verify", {
     method: "POST",
     body: JSON.stringify({
         receipt_id: receipt_id,
