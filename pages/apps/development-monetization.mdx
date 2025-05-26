@@ -1,0 +1,107 @@
+import { OptionTable } from "components/table";
+
+# راهنمای پیاده‌سازی
+
+### تعریف محصول
+برای تعریف محصول خود، از پنل **همدست** در منوی **کسب درآمد > محصولات** استفاده کنید.
+
+
+### باز کردن صورت حساب
+برای نمایش پاپ‌آپ پرداخت در اپ فرانت‌اند ابزارک خود، باید از کد زیر استفاده کنید:
+
+
+```js
+window.hamdast.payment.pay({
+    product_key: "xxxxx",
+    payload: null
+})
+```
+
+<OptionTable
+  options={[
+    ["product_key", "String", "شناسه محصول"],
+    ["payload", "Object", "می‌توانید دیتایی را ارسال کنید تا بعد پرداخت موفق همان payload به شما ارسال داده شود.(اختیاری)"],
+  ]}
+/>
+
+پاپ‌آپ پرداخت برای کاربر نمایش داده خواهد شد.
+
+
+### اطلاع از وضعیت پرداخت و تایید
+
+##### مثال استفاده از رویداد ها
+
+```js
+const { event } = await window.hamdast.payment.pay({
+    product_key: "xxxxx",
+    payload: null
+})
+
+if (event === "HAMDAST_PAYMENT_SUCCESS") {
+    // پرداخت موفق
+} else if (event === "HAMDAST_PAYMENT_CANCEL") {
+    // پرداخت لغو شد
+} else if (event === "HAMDAST_PAYMENT_ERROR") {
+    // پرداخت ناموفق
+}
+``` 
+
+<OptionTable
+  options={[
+    ["event", "String", "نوع رویداد"],
+    ["payload", "Object", "دیتای payload داده شده."],
+    ["product_key", "String", "شناسه محصول"],
+    ["message", "String", "پیام خطا (در صورتی که پرداخت ناموفق باشد)"],
+    ["receipt_id", "String", "شناسه صورت حساب (در صورتی که پرداخت موفق باشد)"],
+  ]}
+/>
+
+
+
+##### تاید پرداخت
+
+در صورتی که پرداخت موفق باشد، باید از رویدادهای زیر برای تایید پرداخت استفاده کنید:
+
+- <b>اپ فرانت‌اند</b>  
+
+```js
+window.hamdast.payment.pay({
+    product_key: "xxxxx",
+    payload: null
+})
+
+if (event === "HAMDAST_PAYMENT_SUCCESS") {
+    // پرداخت موفق
+    // اینجا باید تایید پرداخت را انجام دهید.
+    // ارسال به سرور برای تایید پرداخت
+    // مثال:
+    fetch("https://api.example.com/v1/payment/verify", {
+        method: "POST",
+        body: JSON.stringify({
+            receipt_id: payload.receipt_id,
+        })
+    })
+} else if (event === "HAMDAST_PAYMENT_CANCEL") {
+    // پرداخت لغو شد
+} else if (event === "HAMDAST_PAYMENT_ERROR") {
+    // پرداخت ناموفق
+}
+```
+
+- <b>اپ بک‌اند(سرور)</b>  
+
+در اپ بک‌اند باید براساس **receipt_id** تایید پرداخت را انجام دهید.
+
+برای این منظور از وب‌سرویس زیر به همراه apikey همدست، app_id و receipt_id استفاده کنید:
+
+```js
+fetch("https://hamdast.com/v1/apps/[app_key]/monetization/verify", {
+    method: "POST",
+    body: JSON.stringify({
+        receipt_id: receipt_id,
+    }),
+    headers: {
+        "Authorization": `Bearer xxxxx`,
+    }       
+})
+```

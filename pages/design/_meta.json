@@ -1,16 +1,8 @@
 {
-  "index": "هدف",
-  "-- brand": {
-    "type": "separator",
-    "title": "برند"
+  "identity": {
+    "title": "هویت"
   },
-  "logo": "لوگو",
-  "color": "پالت رنگ",
-  "typography": "تایپوگرافی",
-  "iconography": "آیکون ها",
-  "voice-tone": "نوشتارها و لحن ها",
-  "-- patterns": {
-    "type": "separator",
+  "patterns": {
     "title": "الگوها"
   }
 }

@@ -15,6 +15,12 @@
   },
   "about-channel": "کانال گفتگو چیست؟",
   "development-channel": "مستندات کانال گفتگو",
+  "-- monetization": {
+    "type": "separator",
+    "title": "کسب درآمد"
+  },
+  "about-monetization": "درباره کسب درآمد",
+  "development-monetization": "راهنمای پیاده سازی",
   "-- apis": {
     "type": "separator",
     "title": "APIs"
