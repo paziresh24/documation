@@ -65,7 +65,7 @@ if (event === "HAMDAST_PAYMENT_SUCCESS") {
 - <b>اپ فرانت‌اند</b>  
 
 ```js
-window.hamdast.payment.pay({
+const { event, receipt_id } = await window.hamdast.payment.pay({
     product_key: "xxxxx",
     payload: null
 })
@@ -78,7 +78,7 @@ if (event === "HAMDAST_PAYMENT_SUCCESS") {
     fetch("https://api.example.com/v1/payment/verify", {
         method: "POST",
         body: JSON.stringify({
-            receipt_id: payload.receipt_id,
+            receipt_id: receipt_id,
         })
     })
 } else if (event === "HAMDAST_PAYMENT_CANCEL") {
@@ -92,16 +92,16 @@ if (event === "HAMDAST_PAYMENT_SUCCESS") {
 
 در اپ بک‌اند باید براساس **receipt_id** تایید پرداخت را انجام دهید.
 
-برای این منظور از وب‌سرویس زیر به همراه apikey همدست، app_id و receipt_id استفاده کنید:
+برای این منظور از وب‌سرویس زیر به همراه API Key همدست، App ID و receipt_id استفاده کنید:
 
 ```js
-fetch("https://hamdast.paziresh24.com/api/v1/apps/[app_key]/monetization/verify", {
+fetch("https://hamdast.paziresh24.com/api/v1/apps/[app_id]/monetization/verify", {
     method: "POST",
     body: JSON.stringify({
         receipt_id: receipt_id,
     }),
     headers: {
-        "Authorization": `Bearer xxxxx`,
+        "x-api-key": `xxxxx` // API Key,
     }       
 })
 ```
