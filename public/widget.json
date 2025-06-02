@@ -61,7 +61,7 @@
         }
       }
     },
-    "/api/v1/apps/{app_key}/widgets/{provider_id}/": {
+    "/api/v1/apps/{app_key}/widgets/{user_id}/": {
       "get": {
         "summary": "Retrieve by provider ID",
         "description": "Retrieve the specified profile widget",
@@ -81,7 +81,7 @@
             }
           },
           {
-            "name": "provider_id",
+            "name": "user_id",
             "in": "path",
             "required": true,
             "schema": {
@@ -132,7 +132,7 @@
             }
           },
           {
-            "name": "provider_id",
+            "name": "user_id",
             "in": "path",
             "required": true,
             "schema": {
@@ -183,7 +183,7 @@
             }
           },
           {
-            "name": "provider_id",
+            "name": "user_id",
             "in": "path",
             "required": true,
             "schema": {
@@ -240,7 +240,7 @@
       "RetrieveSpecifiedEnabledProfileWidgetRespnose": {
         "type": "object",
         "properties": {
-          "provider_id": {
+          "user_id": {
             "type": "string"
           },
           "placements": {
@@ -259,7 +259,7 @@
         "items": {
           "type": "object",
           "properties": {
-            "provider_id": {
+            "user_id": {
               "type": "string"
             },
             "placements": {
