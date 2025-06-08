@@ -60,6 +60,50 @@
             }
           }
         }
+      },
+      "patch": {
+        "summary": "Update",
+        "description": "Update profile information such as biography and ...",
+        "operationId": "patchInformation",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "tags": ["Information"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateInformationBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateInformationRespnose"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions."
+          },
+          "default": {
+            "description": "Unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
       }
     },
     "/open-platform/v1/profile/purge-cache": {
@@ -111,6 +155,27 @@
   },
   "components": {
     "schemas": {
+      "UpdateInformationRespnose": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "examples": ["اطلاعات پزشک با موفقیت ویرایش شد"]
+          },
+          "status": {
+            "type": "string",
+            "examples": ["SUCCESS"]
+          }
+        }
+      },
+      "UpdateInformationBody": {
+        "type": "object",
+        "properties": {
+          "biography": {
+            "type": "string"
+          }
+        }
+      },
       "RetrieveInformation": {
         "type": "object",
         "properties": {
