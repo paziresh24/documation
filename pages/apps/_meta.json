@@ -25,7 +25,5 @@
     "type": "separator",
     "title": "APIs"
   },
-  "unread": "Unread",
-  "open_link": "Open Link",
-  "payment": "Payment"
+  "unread": "Unread"
 }
