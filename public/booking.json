@@ -1,0 +1,232 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Booking APIs",
+    "version": "v1.0.0",
+    "description": "APIs related to booking appointments and retrieving free time slots."
+  },
+  "servers": [
+    {
+      "url": "https://apigw.paziresh24.com"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Booking",
+      "description": "APIs related to booking appointments and retrieving free time slots."
+    }
+  ],
+  "paths": {
+    "/open-platform/v1/booking/freeturns": {
+      "get": {
+        "summary": "Get Available Appointment Slots",
+        "description": "Returns a list of available appointment time slots for a given medical center and practitioner, within a specified date range.",
+        "operationId": "getAvailableTurns",
+        "tags": ["Booking"],
+        "parameters": [
+          {
+            "name": "center_id",
+            "in": "query",
+            "required": true,
+            "description": "The unique identifier of the medical center.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "user_center_id",
+            "in": "query",
+            "required": true,
+            "description": "The identifier of the practitioner within the medical center.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": true,
+            "description": "Start of the time range (UNIX timestamp in seconds).",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": true,
+            "description": "End of the time range (UNIX timestamp in seconds).",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved available appointment slots.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FreeTurnsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
+    },
+    "/open-platform/v1/booking/appointments": {
+      "post": {
+        "summary": "Book an Appointment",
+        "description": "Creates a new appointment for a patient with the specified details, including full name, mobile number, and national ID.",
+        "operationId": "bookNewAppointment",
+        "tags": ["Booking"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppointmentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Appointment was successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppointmentResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "FreeTurn": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "integer",
+            "description": "Start time of the appointment slot (UNIX timestamp in seconds)."
+          },
+          "to": {
+            "type": "integer",
+            "description": "End time of the appointment slot (UNIX timestamp in seconds)."
+          },
+          "workhour_turn_num": {
+            "type": "integer",
+            "description": "Slot number within the workday."
+          }
+        }
+      },
+      "FreeTurnsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FreeTurn"
+            }
+          },
+          "status": {
+            "type": "integer",
+            "description": "Status code (0 usually indicates success)."
+          },
+          "message": {
+            "type": "string",
+            "description": "Descriptive message returned from the server."
+          }
+        }
+      },
+      "AppointmentRequest": {
+        "type": "object",
+        "required": [
+          "center_id",
+          "user_center_id",
+          "fullname",
+          "cell",
+          "national_code",
+          "from",
+          "to"
+        ],
+        "properties": {
+          "center_id": {
+            "type": "string",
+            "description": "ID of the medical center."
+          },
+          "user_center_id": {
+            "type": "string",
+            "description": "ID of the doctor or user within the center."
+          },
+          "fullname": {
+            "type": "string",
+            "description": "Patient's full name."
+          },
+          "cell": {
+            "type": "string",
+            "description": "Patient's mobile number."
+          },
+          "national_code": {
+            "type": "string",
+            "description": "Patient's national identification code."
+          },
+          "from": {
+            "type": "integer",
+            "description": "Start time of the desired appointment (UNIX timestamp in seconds)."
+          },
+          "to": {
+            "type": "integer",
+            "description": "End time of the desired appointment (UNIX timestamp in seconds)."
+          }
+        }
+      },
+      "AppointmentResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Confirmation message with date, time, and reference ID."
+          },
+          "time": {
+            "type": "integer",
+            "description": "Scheduled appointment time (UNIX timestamp)."
+          },
+          "refid": {
+            "type": "string",
+            "description": "Tracking reference ID for the appointment."
+          },
+          "status": {
+            "type": "string",
+            "description": "Response status, usually '0' for success."
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "The token must be sent in the `Authorization` header."
+      }
+    }
+  },
+  "x-original-swagger-version": "2.0"
+}
