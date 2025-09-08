@@ -42,17 +42,14 @@ https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth
 در این هنگام، برای دریافت توکن کاربر، می‌بایست درخواست زیر را به سرویس احراز هویت ارسال نمایید:
 
 ```curl
-curl --request POST \
-  --url https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/token \
-  --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
-  --data '{
-        "grant_type" : "authorization_code",
-        "client_id" : "[client_id]",
-        "client_secret" : "[client_secret]",
-        "redirect_uri" : "[redirect_uri]",
-        "code" : "[code]"
-}'
+curl --request POST "https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/token" \
+  --header "Content-Type: application/x-www-form-urlencoded" \
+  --header "Accept: application/json" \
+  --data-urlencode "grant_type=authorization_code" \
+  --data-urlencode "client_id=YOUR_CLIENT_ID" \
+  --data-urlencode "client_secret=YOUR_CLIENT_SECRET" \
+  --data-urlencode "redirect_uri=YOUR_REDIRECT_URI" \
+  --data-urlencode "code=YOUR_AUTHORIZATION_CODE"
 ```
 
 > - client_id: آی‌دی کلاینت شما
