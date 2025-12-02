@@ -16,21 +16,11 @@
     }
   ],
   "tags": [
-    {
-      "name": "Medical Centers"
-    },
-    {
-      "name": "Appointments"
-    },
-    {
-      "name": "Work Hours"
-    },
-    {
-      "name": "Vacations"
-    },
-    {
-      "name": "Slots"
-    }
+    { "name": "Medical Centers" },
+    { "name": "Appointments" },
+    { "name": "Work Hours" },
+    { "name": "Vacations" },
+    { "name": "Slots" }
   ],
   "paths": {
     "/open-platform/v1/booking/slots": {
@@ -45,36 +35,28 @@
             "in": "query",
             "required": true,
             "description": "The unique identifier of the medical center.",
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           },
           {
             "name": "user_center_id",
             "in": "query",
             "required": true,
             "description": "The identifier of the practitioner within the medical center.",
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           },
           {
             "name": "from",
             "in": "query",
             "required": true,
             "description": "Start of the time range (UNIX timestamp in seconds).",
-            "schema": {
-              "type": "integer"
-            }
+            "schema": { "type": "integer" }
           },
           {
             "name": "to",
             "in": "query",
             "required": true,
             "description": "End of the time range (UNIX timestamp in seconds).",
-            "schema": {
-              "type": "integer"
-            }
+            "schema": { "type": "integer" }
           }
         ],
         "responses": {
@@ -82,15 +64,11 @@
             "description": "Successfully retrieved available appointment slots.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FreeTurnsResponse"
-                }
+                "schema": { "$ref": "#/components/schemas/FreeTurnsResponse" }
               }
             }
           },
-          "default": {
-            "description": "Unexpected error"
-          }
+          "default": { "description": "Unexpected error" }
         }
       }
     },
@@ -99,11 +77,7 @@
         "summary": "Retrieve All",
         "description": "Fetches a list of medical center",
         "operationId": "getCenters",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ],
+        "security": [{ "BearerAuth": [] }],
         "tags": ["Medical Centers"],
         "x-scopes": ["view-calendar"],
         "responses": {
@@ -117,16 +91,10 @@
               }
             }
           },
-          "403": {
-            "description": "Forbidden - Insufficient permissions."
-          },
+          "403": { "description": "Forbidden - Insufficient permissions." },
           "default": {
             "description": "Unexpected error occurred.",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "content": { "application/json": { "schema": {} } }
           }
         }
       }
@@ -136,11 +104,7 @@
         "summary": "Update",
         "description": "Update medical center",
         "operationId": "putCenters",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ],
+        "security": [{ "BearerAuth": [] }],
         "tags": ["Medical Centers"],
         "x-scopes": ["view-calendar"],
         "parameters": [
@@ -148,9 +112,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           }
         ],
         "requestBody": {
@@ -174,16 +136,10 @@
               }
             }
           },
-          "403": {
-            "description": "Forbidden - Insufficient permissions."
-          },
+          "403": { "description": "Forbidden - Insufficient permissions." },
           "default": {
             "description": "Unexpected error occurred.",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "content": { "application/json": { "schema": {} } }
           }
         }
       }
@@ -193,11 +149,7 @@
         "summary": "Retrieve All",
         "description": "Fetches a list of doctor appointments based on the provided filters.",
         "operationId": "getAppointments",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ],
+        "security": [{ "BearerAuth": [] }],
         "tags": ["Appointments"],
         "x-scopes": ["view-calendar"],
         "parameters": [
@@ -206,19 +158,14 @@
             "in": "query",
             "description": "ID of the medical center to filter appointments.",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           },
           {
             "name": "date",
             "in": "query",
             "description": "Filter by appointment date (Format: YYYY-MM-DD).",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "date"
-            }
+            "schema": { "type": "string", "format": "date" }
           }
         ],
         "responses": {
@@ -226,22 +173,14 @@
             "description": "Successful response with the list of appointments.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AppointmentResponse"
-                }
+                "schema": { "$ref": "#/components/schemas/AppointmentResponse" }
               }
             }
           },
-          "403": {
-            "description": "Forbidden - Insufficient permissions."
-          },
+          "403": { "description": "Forbidden - Insufficient permissions." },
           "default": {
             "description": "Unexpected error occurred.",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "content": { "application/json": { "schema": {} } }
           }
         }
       },
@@ -254,9 +193,7 @@
           "required": true,
           "content": {
             "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewAppointmentRequest"
-              }
+              "schema": { "$ref": "#/components/schemas/NewAppointmentRequest" }
             }
           }
         },
@@ -271,22 +208,52 @@
               }
             }
           },
-          "default": {
-            "description": "Unexpected error"
-          }
+          "default": { "description": "Unexpected error" }
         }
       }
     },
     "/open-platform/v1/booking/appointments/{id}": {
+      "get": {
+        "summary": "Retrieve Single Appointment",
+        "description": "Fetches the details of a specific appointment using its unique appointment ID (UUID).",
+        "operationId": "getAppointmentById",
+        "tags": ["Appointments"],
+        "security": [{ "BearerAuth": [] }],
+        "x-scopes": ["view-calendar"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the appointment (UUID).",
+            "schema": { "type": "string", "format": "uuid" },
+            "example": "52f172e5-cf69-11f0-a8fe-fa163e8a0bb8"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with the appointment details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SingleAppointmentResponse"
+                }
+              }
+            }
+          },
+          "403": { "description": "Forbidden - Insufficient permissions." },
+          "404": { "description": "Appointment not found." },
+          "default": {
+            "description": "Unexpected error occurred.",
+            "content": { "application/json": { "schema": {} } }
+          }
+        }
+      },
       "delete": {
         "summary": "Delete",
         "description": "Delete appointments by id.",
         "operationId": "deleteAppointments",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ],
+        "security": [{ "BearerAuth": [] }],
         "tags": ["Appointments"],
         "x-scopes": ["view-calendar"],
         "parameters": [
@@ -294,9 +261,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           }
         ],
         "responses": {
@@ -310,16 +275,10 @@
               }
             }
           },
-          "403": {
-            "description": "Forbidden - Insufficient permissions."
-          },
+          "403": { "description": "Forbidden - Insufficient permissions." },
           "default": {
             "description": "Unexpected error occurred.",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "content": { "application/json": { "schema": {} } }
           }
         }
       }
@@ -329,20 +288,14 @@
         "summary": "Retrieve All",
         "description": "Fetches a list of workhours by center",
         "operationId": "getWorkhours",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ],
+        "security": [{ "BearerAuth": [] }],
         "parameters": [
           {
             "name": "center_id",
             "in": "query",
             "description": "ID of the medical center to filter appointments.",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           }
         ],
         "tags": ["Work Hours"],
@@ -358,16 +311,10 @@
               }
             }
           },
-          "403": {
-            "description": "Forbidden - Insufficient permissions."
-          },
+          "403": { "description": "Forbidden - Insufficient permissions." },
           "default": {
             "description": "Unexpected error occurred.",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "content": { "application/json": { "schema": {} } }
           }
         }
       },
@@ -375,17 +322,11 @@
         "summary": "Set",
         "description": "Set workhours for center",
         "operationId": "setWorkhours",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ],
+        "security": [{ "BearerAuth": [] }],
         "requestBody": {
           "content": {
             "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetWorkhoursBody"
-              }
+              "schema": { "$ref": "#/components/schemas/SetWorkhoursBody" }
             }
           },
           "required": true
@@ -403,16 +344,10 @@
               }
             }
           },
-          "403": {
-            "description": "Forbidden - Insufficient permissions."
-          },
+          "403": { "description": "Forbidden - Insufficient permissions." },
           "default": {
             "description": "Unexpected error occurred.",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "content": { "application/json": { "schema": {} } }
           }
         }
       }
@@ -422,39 +357,27 @@
         "summary": "Retrieve All",
         "description": "Fetches a list of vacations by center",
         "operationId": "getVacations",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ],
+        "security": [{ "BearerAuth": [] }],
         "parameters": [
           {
             "name": "center_id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           },
           {
             "name": "from",
             "in": "query",
             "description": "Start date",
             "required": false,
-            "schema": {
-              "type": "integer",
-              "examples": [1739910600]
-            }
+            "schema": { "type": "integer", "examples": [1739910600] }
           },
           {
             "name": "to",
             "in": "query",
             "description": "End date",
             "required": false,
-            "schema": {
-              "type": "integer",
-              "examples": [1742502600]
-            }
+            "schema": { "type": "integer", "examples": [1742502600] }
           }
         ],
         "tags": ["Vacations"],
@@ -464,22 +387,14 @@
             "description": "Successful response with the list of workhours.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/VacationsResponse"
-                }
+                "schema": { "$ref": "#/components/schemas/VacationsResponse" }
               }
             }
           },
-          "403": {
-            "description": "Forbidden - Insufficient permissions."
-          },
+          "403": { "description": "Forbidden - Insufficient permissions." },
           "default": {
             "description": "Unexpected error occurred.",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "content": { "application/json": { "schema": {} } }
           }
         }
       },
@@ -487,27 +402,19 @@
         "summary": "Create",
         "description": "Create vacation for center",
         "operationId": "createVacation",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ],
+        "security": [{ "BearerAuth": [] }],
         "parameters": [
           {
             "name": "center_id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateVacationBody"
-              }
+              "schema": { "$ref": "#/components/schemas/CreateVacationBody" }
             }
           },
           "required": true
@@ -525,16 +432,10 @@
               }
             }
           },
-          "403": {
-            "description": "Forbidden - Insufficient permissions."
-          },
+          "403": { "description": "Forbidden - Insufficient permissions." },
           "default": {
             "description": "Unexpected error occurred.",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "content": { "application/json": { "schema": {} } }
           }
         }
       },
@@ -542,27 +443,19 @@
         "summary": "Update",
         "description": "Update vacation",
         "operationId": "updateVacation",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ],
+        "security": [{ "BearerAuth": [] }],
         "parameters": [
           {
             "name": "center_id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateVacationBody"
-              }
+              "schema": { "$ref": "#/components/schemas/UpdateVacationBody" }
             }
           },
           "required": true
@@ -580,16 +473,10 @@
               }
             }
           },
-          "403": {
-            "description": "Forbidden - Insufficient permissions."
-          },
+          "403": { "description": "Forbidden - Insufficient permissions." },
           "default": {
             "description": "Unexpected error occurred.",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "content": { "application/json": { "schema": {} } }
           }
         }
       },
@@ -597,27 +484,19 @@
         "summary": "Delete",
         "description": "Delete vacation",
         "operationId": "deleteVacation",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ],
+        "security": [{ "BearerAuth": [] }],
         "parameters": [
           {
             "name": "center_id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteVacationBody"
-              }
+              "schema": { "$ref": "#/components/schemas/DeleteVacationBody" }
             }
           },
           "required": true
@@ -635,16 +514,10 @@
               }
             }
           },
-          "403": {
-            "description": "Forbidden - Insufficient permissions."
-          },
+          "403": { "description": "Forbidden - Insufficient permissions." },
           "default": {
             "description": "Unexpected error occurred.",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "content": { "application/json": { "schema": {} } }
           }
         }
       }
@@ -674,9 +547,7 @@
         "properties": {
           "result": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FreeTurn"
-            }
+            "items": { "$ref": "#/components/schemas/FreeTurn" }
           },
           "status": {
             "type": "integer",
@@ -754,52 +625,28 @@
       "MedicalCentersResponse": {
         "type": "object",
         "properties": {
-          "status": {
-            "type": "string",
-            "examples": ["SUCCESS"]
-          },
+          "status": { "type": "string", "examples": ["SUCCESS"] },
           "data": {
             "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {}
-            }
+            "items": { "type": "object", "properties": {} }
           }
         }
       },
       "UpdateMedicalCenterBody": {
         "type": "object",
         "properties": {
-          "address": {
-            "type": "string"
-          },
-          "city": {
-            "type": "integer"
-          },
-          "province": {
-            "type": "integer"
-          },
-          "tells": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "lat": {
-            "type": "integer"
-          },
-          "lon": {
-            "type": "integer"
-          }
+          "address": { "type": "string" },
+          "city": { "type": "integer" },
+          "province": { "type": "integer" },
+          "tells": { "type": "array", "items": { "type": "string" } },
+          "lat": { "type": "integer" },
+          "lon": { "type": "integer" }
         }
       },
       "UpdateMedicalCentersResponse": {
         "type": "object",
         "properties": {
-          "status": {
-            "type": "string",
-            "examples": ["SUCCESS"]
-          },
+          "status": { "type": "string", "examples": ["SUCCESS"] },
           "message": {
             "type": "string",
             "examples": ["مرکز با موفقیت آپدیت شد"]
@@ -809,10 +656,7 @@
       "AppointmentResponse": {
         "type": "object",
         "properties": {
-          "status": {
-            "type": "string",
-            "examples": ["SUCCESS"]
-          },
+          "status": { "type": "string", "examples": ["SUCCESS"] },
           "data": {
             "type": "array",
             "items": {
@@ -821,116 +665,96 @@
                 "id": {
                   "type": "string",
                   "description": "Unique appointment identifier.",
-                  "examples": ["66b0a3eb-fe64-11ef-a891-005056ad823b"]
+                  "example": "66b0a3eb-fe64-11ef-a891-005056ad823b"
                 },
-                "type": {
-                  "type": "string",
-                  "description": "Type of appointment booking.",
-                  "examples": ["book"]
-                },
+                "type": { "type": "string", "example": "book" },
                 "user_center_id": {
                   "type": "string",
-                  "description": "ID of the medical center.",
-                  "examples": ["9b87618a-62db-482b-8b96-ae94a92039d5"]
+                  "example": "9b87618a-62db-482b-8b96-ae94a92039d5"
                 },
-                "book_status": {
-                  "type": "string",
-                  "description": "Status of the booking (e.g., not_came, came, not_visited,visited).",
-                  "examples": ["not_came"]
-                },
-                "ref_id": {
-                  "type": "string",
-                  "description": "Reference ID for the booking.",
-                  "examples": ["1076232793"]
-                },
-                "from": {
-                  "type": "integer",
-                  "description": "Start time in Unix timestamp format.",
-                  "examples": [1741792200]
-                },
-                "to": {
-                  "type": "integer",
-                  "description": "End time in Unix timestamp format.",
-                  "examples": [1741792500]
-                },
+                "book_status": { "type": "string", "example": "not_came" },
+                "ref_id": { "type": "string", "example": "1076232793" },
+                "from": { "type": "integer", "example": 1741792200 },
+                "to": { "type": "integer", "example": 1741792500 },
                 "from_date": {
                   "type": "string",
-                  "description": "Start time in human-readable format.",
-                  "examples": ["2025-03-12 18:40:00"]
+                  "example": "2025-03-12 18:40:00"
                 },
                 "to_date": {
                   "type": "string",
-                  "description": "End time in human-readable format.",
-                  "examples": ["2025-03-12 18:45:00"]
+                  "example": "2025-03-12 18:45:00"
                 },
-                "name": {
-                  "type": "string",
-                  "description": "First name of the patient.",
-                  "examples": ["Amirhossein"]
-                },
-                "family": {
-                  "type": "string",
-                  "description": "Last name of the patient.",
-                  "examples": ["Beigi"]
-                },
+                "name": { "type": "string", "example": "Amirhossein" },
+                "family": { "type": "string", "example": "Beigi" },
                 "display_name": {
                   "type": "string",
-                  "description": "Full name of the patient.",
-                  "examples": ["Amirhossein Beigi"]
+                  "example": "Amirhossein Beigi"
                 },
-                "cell": {
-                  "type": "string",
-                  "description": "Patient's phone number.",
-                  "examples": ["09123456789"]
-                },
-                "national_code": {
-                  "type": "string",
-                  "description": "National identification number.",
-                  "examples": ["1111111111"]
-                },
-                "prescription": {
-                  "type": "boolean",
-                  "description": "Indicates if a prescription was issued.",
-                  "examples": [false]
-                },
-                "payment_status": {
-                  "type": "string",
-                  "description": "Payment status of the appointment (e.g., paid, not_paid, refunded).",
-                  "examples": ["paid"]
-                },
-                "expired": {
-                  "type": "integer",
-                  "description": "Indicates whether the appointment has expired (1 for expired, 0 for active).",
-                  "examples": [0]
-                },
-                "user_payment": {
-                  "type": "integer",
-                  "description": "Total amount paid by the user.",
-                  "examples": [140000]
-                },
-                "online_channel": {
-                  "type": "string",
-                  "description": "The online channel used for booking.",
-                  "examples": ["whatsapp"]
-                },
+                "cell": { "type": "string", "example": "09123456789" },
+                "national_code": { "type": "string", "example": "1111111111" },
+                "prescription": { "type": "boolean", "example": false },
+                "payment_status": { "type": "string", "example": "paid" },
+                "expired": { "type": "integer", "example": 0 },
+                "user_payment": { "type": "integer", "example": 140000 },
+                "online_channel": { "type": "string", "example": "whatsapp" },
                 "delete_reason": {
                   "type": "string",
                   "nullable": true,
-                  "description": "Reason for cancellation if applicable.",
-                  "examples": [null]
+                  "example": null
                 }
               }
             }
           }
         }
       },
+      "SingleAppointmentCenter": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "example": "5532" },
+          "name": { "type": "string", "example": "ویزیت آنلاین پذیرش24" },
+          "address": {
+            "type": "string",
+            "example": "مرکز ویزیت آنلاین پذیرش24"
+          },
+          "user_center_id": {
+            "type": "string",
+            "example": "9b87618a-62db-482b-8b96-ae94a92039d5"
+          }
+        }
+      },
+      "SingleAppointmentResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique appointment identifier (UUID)",
+            "example": "52f172e5-cf69-11f0-a8fe-fa163e8a0bb8"
+          },
+          "book_status": { "type": "string", "example": "visited" },
+          "ref_id": { "type": "string", "example": "3491779159" },
+          "from": { "type": "string", "example": "1764858600" },
+          "to": { "type": "string", "example": "1764858900" },
+          "from_date": {
+            "type": "string",
+            "example": "2025-12-04T18:00:00.000+03:30"
+          },
+          "to_date": {
+            "type": "string",
+            "example": "2025-12-04T18:05:00.000+03:30"
+          },
+          "name": { "type": "string", "example": "امیرحسین" },
+          "family": { "type": "string", "example": "بیگی" },
+          "display_name": { "type": "string", "example": "امیرحسین بیگی" },
+          "cell": { "type": "string", "example": "9224048766" },
+          "national_code": { "type": "string", "example": "4421141224" },
+          "payment_status": { "type": "string", "example": "paid" },
+          "center": { "$ref": "#/components/schemas/SingleAppointmentCenter" }
+        }
+      },
       "DeleteAppointmentResponse": {
         "type": "object",
         "properties": {
-          "status": {
-            "type": "string",
-            "examples": ["SUCCESS"]
-          },
+          "status": { "type": "string", "examples": ["SUCCESS"] },
           "message": {
             "type": "string",
             "examples": ["درخواست شما با موفقیت پردازش شد"]
@@ -940,13 +764,8 @@
       "SetWorkhoursBody": {
         "type": "object",
         "properties": {
-          "center_id": {
-            "type": "string"
-          },
-          "cost": {
-            "type": "integer",
-            "examples": [0]
-          },
+          "center_id": { "type": "string" },
+          "cost": { "type": "integer", "examples": [0] },
           "duration": {
             "type": "integer",
             "description": "Visit duration(minute)",
@@ -957,19 +776,9 @@
             "items": {
               "type": "object",
               "properties": {
-                "day": {
-                  "type": "integer",
-                  "description": "Day of weeks (e.g., 1, 2, ..., 7)",
-                  "examples": [1]
-                },
-                "from": {
-                  "type": "string",
-                  "examples": ["08:00"]
-                },
-                "to": {
-                  "type": "string",
-                  "examples": ["12:00"]
-                }
+                "day": { "type": "integer", "examples": [1] },
+                "from": { "type": "string", "examples": ["08:00"] },
+                "to": { "type": "string", "examples": ["12:00"] }
               }
             }
           }
@@ -978,10 +787,7 @@
       "SetWorkhoursResponse": {
         "type": "object",
         "properties": {
-          "status": {
-            "type": "string",
-            "examples": ["SUCCESS"]
-          },
+          "status": { "type": "string", "examples": ["SUCCESS"] },
           "message": {
             "type": "string",
             "examples": ["درخواست شما با موفقیت پردازش شد"]
@@ -991,19 +797,13 @@
       "VacationsResponse": {
         "type": "object",
         "properties": {
-          "status": {
-            "type": "string",
-            "examples": ["SUCCESS"]
-          },
+          "status": { "type": "string", "examples": ["SUCCESS"] },
           "data": {
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
-                "duration": {
-                  "type": "integer",
-                  "examples": [262800]
-                },
+                "duration": { "type": "integer", "examples": [262800] },
                 "formatted_duration": {
                   "type": "string",
                   "examples": ["3 روز"]
@@ -1016,14 +816,8 @@
                   "type": "string",
                   "examples": ["یکشنبه 26 اسفند-01:00"]
                 },
-                "from": {
-                  "type": "string",
-                  "examples": ["1741811400"]
-                },
-                "to": {
-                  "type": "string",
-                  "examples": ["1742074200"]
-                }
+                "from": { "type": "string", "examples": ["1741811400"] },
+                "to": { "type": "string", "examples": ["1742074200"] }
               }
             }
           }
@@ -1032,23 +826,14 @@
       "CreateVacationBody": {
         "type": "object",
         "properties": {
-          "from": {
-            "type": "integer",
-            "examples": [1741811400]
-          },
-          "to": {
-            "type": "integer",
-            "examples": [1742074200]
-          }
+          "from": { "type": "integer", "examples": [1741811400] },
+          "to": { "type": "integer", "examples": [1742074200] }
         }
       },
       "CreateVacationResponse": {
         "type": "object",
         "properties": {
-          "status": {
-            "type": "string",
-            "examples": ["SUCCESS"]
-          },
+          "status": { "type": "string", "examples": ["SUCCESS"] },
           "message": {
             "type": "string",
             "examples": ["درخواست شما با موفقیت پردازش شد"]
@@ -1058,31 +843,16 @@
       "UpdateVacationBody": {
         "type": "object",
         "properties": {
-          "from": {
-            "type": "integer",
-            "examples": [1741811400]
-          },
-          "to": {
-            "type": "integer",
-            "examples": [1742074200]
-          },
-          "old_from": {
-            "type": "integer",
-            "examples": [1741811400]
-          },
-          "old_to": {
-            "type": "integer",
-            "examples": [1742074200]
-          }
+          "from": { "type": "integer", "examples": [1741811400] },
+          "to": { "type": "integer", "examples": [1742074200] },
+          "old_from": { "type": "integer", "examples": [1741811400] },
+          "old_to": { "type": "integer", "examples": [1742074200] }
         }
       },
       "UpdateVacationResponse": {
         "type": "object",
         "properties": {
-          "status": {
-            "type": "string",
-            "examples": ["SUCCESS"]
-          },
+          "status": { "type": "string", "examples": ["SUCCESS"] },
           "message": {
             "type": "string",
             "examples": ["درخواست شما با موفقیت پردازش شد"]
@@ -1092,23 +862,14 @@
       "DeleteVacationBody": {
         "type": "object",
         "properties": {
-          "from": {
-            "type": "integer",
-            "examples": [1741811400]
-          },
-          "to": {
-            "type": "integer",
-            "examples": [1742074200]
-          }
+          "from": { "type": "integer", "examples": [1741811400] },
+          "to": { "type": "integer", "examples": [1742074200] }
         }
       },
       "DeleteVacationResponse": {
         "type": "object",
         "properties": {
-          "status": {
-            "type": "string",
-            "examples": ["SUCCESS"]
-          },
+          "status": { "type": "string", "examples": ["SUCCESS"] },
           "message": {
             "type": "string",
             "examples": ["درخواست شما با موفقیت پردازش شد"]
