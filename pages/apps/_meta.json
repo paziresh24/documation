@@ -4,27 +4,10 @@
   "sdk": {
     "title": "SDK"
   },
-  "-- profile-plugin": {
-    "type": "separator",
-    "title": "ویجت پروفایل"
-  },
-  "about-widget": "ویجت پروفایل چیست؟",
-  "development-widget": "مستندات ویجت",
-  "-- channel-plugin": {
-    "type": "separator",
-    "title": "کانال گفتگو"
-  },
-  "about-channel": "کانال گفتگو چیست؟",
-  "development-channel": "مستندات کانال گفتگو",
   "-- monetization": {
     "type": "separator",
     "title": "کسب درآمد"
   },
   "about-monetization": "درباره کسب درآمد",
-  "development-monetization": "راهنمای پیاده سازی",
-  "-- apis": {
-    "type": "separator",
-    "title": "APIs"
-  },
-  "unread": "Unread"
+  "development-monetization": "راهنمای پیاده سازی"
 }
