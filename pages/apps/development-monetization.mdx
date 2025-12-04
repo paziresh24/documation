@@ -3,7 +3,7 @@ import { Tabs } from 'nextra/components'
 
 # راهنمای پیاده‌سازی
 
-<Tabs items={['تعریف محصول', 'صورت حساب پویا']}>
+<Tabs items={['تعریف محصول', 'صورت حساب پویا', 'پلن‌های اشتراکی']}>
   <Tabs.Tab>
 ### تعریف صورت حساب
 برای تعریف محصول خود، از پنل **همدست** در منوی **کسب درآمد > محصولات** استفاده کنید.
@@ -235,5 +235,57 @@ fetch("https://hamdast.paziresh24.com/api/v1/apps/[app_id]/monetization/verify",
     }       
 })
 ```
+</Tabs.Tab>
+  <Tabs.Tab>
+### تعریف پلن اشتراکی
+برای تعریف پلن‌های اشتراکی خود، از پنل **همدست** در منوی **کسب درآمد > پلن‌های اشتراک** استفاده کنید.
+
+### باز کردن پلن اشتراکی
+برای نمایش پاپ‌آپ پلن‌های اشتراکی در اپ فرانت‌اند ابزارک خود، باید از کد زیر استفاده کنید:
+
+```js
+window.hamdast.payment.subscribe({
+    plan_key: "lv1420996jm1ubn"
+})
+```
+
+یا برای نمایش همه پلن‌ها:
+
+```js
+window.hamdast.payment.subscribe()
+```
+
+<OptionTable
+  options={[
+    ["plan_key", "String", "شناسه پلن اشتراکی (اختیاری - در صورت عدم ارسال، همه پلن‌ها نمایش داده می‌شوند)"],
+  ]}
+/>
+
+پاپ‌آپ پلن‌های اشتراکی برای کاربر نمایش داده خواهد شد.
+
+
+### اطلاع از وضعیت اشتراک
+
+##### مثال استفاده از رویداد ها
+
+```js
+const { event } = await window.hamdast.payment.subscribe({
+    plan_key: "lv1420996jm1ubn"
+})
+
+if (event === "HAMDAST_PAYMENT_SUBSCRIBE_SUCCESS") {
+    // اشتراک موفق
+} else if (event === "HAMDAST_PAYMENT_SUBSCRIBE_CANCEL") {
+    // اشتراک لغو شد
+}
+``` 
+
+<OptionTable
+  options={[
+    ["event", "String", "نوع رویداد"],
+    ["plan_key", "String", "شناسه پلن اشتراکی"],
+    ["receipt_id", "String", "شناسه صورت حساب (در صورتی که اشتراک موفق باشد)"],
+  ]}
+/>
 </Tabs.Tab>
 </Tabs>
