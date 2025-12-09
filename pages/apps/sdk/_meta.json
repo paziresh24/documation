@@ -3,6 +3,9 @@
     "title": "نصب"
   },
   "redirect": {
-    "title": "Redirect"
+    "title": "هدایت کابر (Redirect)"
+  },
+  "flow": {
+    "title": "فرایند (Flow)"
   }
 }
