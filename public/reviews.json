@@ -82,7 +82,82 @@
         }
       }
     },
-    "/open-platform/v1/reviews/{id}/reply": {
+    "/open-platform/v1/reviews/{id}/replies": {
+      "get": {
+        "summary": "Get replies list for a review",
+        "description": "Retrieves a list of replies for a specific review with pagination and sorting options.",
+        "operationId": "getReviewReplies",
+        "tags": ["Replies"],
+        "security": [{ "BearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of the review.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Number of items to return per page. Default is 10.",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Number of items to skip. Default is 0.",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort order. Options: -created_at, -default_order, -count_like. Default is -created_at.",
+            "schema": {
+              "type": "string",
+              "enum": ["-created_at", "-default_order", "-count_like"],
+              "default": "-created_at"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved replies list.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewsListResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions."
+          },
+          "404": {
+            "description": "Review not found."
+          },
+          "default": {
+            "description": "Unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      },
       "post": {
         "summary": "Create doctor reply to review",
         "description": "Allows a doctor to reply to a patient's review comment.",
