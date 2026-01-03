@@ -212,6 +212,51 @@
           }
         }
       }
+    },
+    "/open-platform/v1/reviews/{review_id}/replies/{id}": {
+      "delete": {
+        "summary": "Delete a reply to a review",
+        "description": "Deletes a specific reply to a review.",
+        "operationId": "deleteReviewReply",
+        "tags": ["Replies"],
+        "security": [{ "BearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "review_id",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of the review.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of the reply.",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Reply successfully deleted."
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions."
+          },
+          "default": {
+            "description": "Unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
