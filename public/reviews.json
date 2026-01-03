@@ -247,6 +247,9 @@
           "403": {
             "description": "Forbidden - Insufficient permissions."
           },
+          "404": {
+            "description": "Review or reply not found."
+          },
           "default": {
             "description": "Unexpected error occurred.",
             "content": {
