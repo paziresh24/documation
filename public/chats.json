@@ -100,6 +100,24 @@
             "type": "string",
             "description": "The text content of the message.",
             "example": "متن پیام"
+          },
+          "attachments": {
+            "type": "array",
+            "description": "Attachments to send with the message.",
+            "items": {
+              "type": "object",
+              "required": ["url"],
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "description": "Direct URL of the uploaded file."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Display name of the file."
+                }
+              }
+            }
           }
         }
       },
